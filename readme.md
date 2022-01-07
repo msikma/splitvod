@@ -32,7 +32,9 @@ example:
               -b "stream2.mp4" "2:29:00.976" "0.8"
 ```
 
-For each set of two videos, they'll need a specific timestamp where they're both synced up. Then one of the two videos needs to have a start and end timestamp (the start/end timestamps for the other video will be calculated automatically based on the sync point).
+For each set of two videos, they'll need a specific timestamp where they're both synced up (note: [the Time extension for VLC Player](https://addons.videolan.org/p/1154032) is a good way to find it). Then one of the two videos needs to have a start and end timestamp (the start/end timestamps for the other video will be calculated automatically based on the sync point).
+
+Timestamps should be given in HH:MM:SS.MS format.
 
 For example:
 
