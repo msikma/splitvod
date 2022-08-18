@@ -221,7 +221,7 @@ function makeEncodeCommands(a, b, options) {
   const aFilterAB = [aFilterA, aFilterB].join(';')
   
   // Put everything together into a single command.
-  return [`ffmpeg -y ${vInputAB} -t "${a.totalDuration}" -filter_complex "[0:v]${vFilters}[v0];[1:v]${vFilters}[v1];[v0][v1]hstack=inputs=2[v];${aFilterAB};[a0][a1]amerge=inputs=2[a]" -map "[v]" -map "[a]" -ac 2 "out.mp4"`]
+  return [`ffmpeg -y ${vInputAB} -t "${a.totalDuration}" -vsync 2 -filter_complex "[0:v]${vFilters}[v0];[1:v]${vFilters}[v1];[v0][v1]hstack=inputs=2[v];${aFilterAB};[a0][a1]amerge=inputs=2[a]" -map "[v]" -map "[a]" -ac 2 "out.mp4"`]
 }
 
 /**
