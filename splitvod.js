@@ -24,7 +24,10 @@ function add(...args) {
 
 /** Converts a DD:HH:MM:SS.MS duration to milliseconds. */
 function durationInMs(duration) {
-  const [main, remainder] = duration.split('.')
+  let [main, remainder] = duration.split('.')
+  if (remainder === undefined) {
+    remainder = '000'
+  }
   const values = main.split(':').map(v => parseInt(v))
   const valuesInMs = add(...values.reverse().map((v, n) => v * durations[n]))
   return valuesInMs + parseInt(remainder)
